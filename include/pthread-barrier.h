@@ -18,7 +18,11 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #define _UV_PTHREAD_BARRIER_
 #include <errno.h>
 #include <pthread.h>
+#if defined( __MVS__)
+#define sem_t int
+#else
 #include <semaphore.h> /* sem_t */
+#endif
 
 #define PTHREAD_BARRIER_SERIAL_THREAD  0x12345
 
@@ -33,7 +37,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
   sizeof(pthread_cond_t) + \
   sizeof(unsigned int) - \
   sizeof(void *)
-#elif defined(__APPLE__)
+#elif defined(__APPLE__) || defined(__MVS__)
 # define UV_BARRIER_STRUCT_PADDING \
   sizeof(pthread_mutex_t) + \
   2 * sizeof(sem_t) + \
