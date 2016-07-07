@@ -137,8 +137,17 @@ typedef pthread_rwlock_t uv_rwlock_t;
 typedef UV_PLATFORM_SEM_T uv_sem_t;
 typedef pthread_cond_t uv_cond_t;
 typedef pthread_key_t uv_key_t;
-typedef pthread_barrier_t uv_barrier_t;
 
+#if defined(__MVS__)
+typedef struct {
+  unsigned count;
+  unsigned total;
+  pthread_mutex_t mutex;
+  pthread_cond_t cv;
+} uv_barrier_t;
+#else
+typedef pthread_barrier_t uv_barrier_t;
+#endif
 
 /* Platform-specific definitions for uv_spawn support. */
 typedef gid_t uv_gid_t;
