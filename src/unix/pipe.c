@@ -97,6 +97,11 @@ int uv_pipe_listen(uv_pipe_t* handle, int backlog, uv_connection_cb cb) {
   if (uv__stream_fd(handle) == -1)
     return -EINVAL;
 
+#if defined(__MVS__)
+  /*on zOS, backlog=0 has undefined behaviour */
+  backlog = backlog == 0 ? 1 : backlog;
+#endif
+
   if (listen(uv__stream_fd(handle), backlog))
     return -errno;
 
