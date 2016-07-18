@@ -58,4 +58,6 @@
 
 #define UV_HAVE_KQUEUE 1
 
+#define UV_TCP_PRIVATE_PLATFORM_FIELDS                                        \
+
 #endif /* UV_DARWIN_H */

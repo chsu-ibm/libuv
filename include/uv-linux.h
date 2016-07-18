@@ -31,4 +31,6 @@
   void* watchers[2];                                                          \
   int wd;                                                                     \
 
+#define UV_TCP_PRIVATE_PLATFORM_FIELDS                                        \
+
 #endif /* UV_LINUX_H */

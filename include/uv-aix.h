@@ -29,4 +29,6 @@
   uv__io_t event_watcher;                                                     \
   char *dir_filename;                                                         \
 
+#define UV_TCP_PRIVATE_PLATFORM_FIELDS                                        \
+
 #endif /* UV_AIX_H */

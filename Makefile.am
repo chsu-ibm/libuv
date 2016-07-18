@@ -351,6 +351,10 @@ libuv_la_CFLAGS += -D__EXTENSIONS__ -D_XOPEN_SOURCE=500
 libuv_la_SOURCES += src/unix/sunos.c
 endif
 
+if OS390
+include_HEADERS += include/uv-os390.h
+endif
+
 if HAVE_PKG_CONFIG
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = @PACKAGE_NAME@.pc
