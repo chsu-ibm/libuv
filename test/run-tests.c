@@ -115,7 +115,7 @@ static int maybe_run_test(int argc, char **argv) {
 
   if (strcmp(argv[1], "spawn_helper4") == 0) {
     /* Never surrender, never return! */
-    while (1) uv_sleep(10000);
+    while (1) uv_sleep(999);
   }
 
   if (strcmp(argv[1], "spawn_helper5") == 0) {

@@ -174,7 +174,7 @@ static int run_test(int inprocess) {
     r = uv_thread_create(&tid, ipc_send_recv_helper_threadproc, (void *) 42);
     ASSERT(r == 0);
 
-    uv_sleep(1000);
+    uv_sleep(999);
 
     r = uv_pipe_init(uv_default_loop(), &ctx.channel, 1);
     ASSERT(r == 0);

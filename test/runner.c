@@ -256,7 +256,7 @@ int run_test(const char* test,
 
   if (benchmark_output) {
     /* Give the helpers time to clean up their act. */
-    uv_sleep(1000);
+    uv_sleep(999);
   }
 
 out:
